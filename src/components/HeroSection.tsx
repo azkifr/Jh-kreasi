@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Building2, CheckCircle2, MapPin, ChevronDown } from 'lucide-react';
 
@@ -30,7 +31,21 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen mesh-gradient flex flex-col justify-center items-center px-6 pt-20 pb-10 overflow-hidden bg-forest">
+    <section id="hero" className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20 pb-10 overflow-hidden bg-forest">
+      {/* Architectural Geometric Motif Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <Image
+          src="/images/architectural_motif_bg.jpg"
+          alt="JH Kreasi Architectural Motif"
+          fill
+          priority
+          className="object-cover object-center opacity-30 mix-blend-luminosity scale-105 filter contrast-125"
+        />
+        {/* Luxury Vignette & Deep Forest Tint Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-forest/85 via-forest/60 to-forest/90" />
+        <div className="absolute inset-0 mesh-gradient opacity-60" />
+      </div>
+
       <motion.div
         variants={containerVariants}
         initial="hidden"
