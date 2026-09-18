@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
+import { getAssetPath } from '@/lib/utils';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'JH Kreasi Studio' }],
   icons: {
-    icon: '/favicon.svg',
+    icon: getAssetPath('/favicon.svg'),
   },
   openGraph: {
     title: 'JH Kreasi Studio | Elevating Brands in Prime Spaces',

@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useSpring, useTransform, MotionValue } from 'framer-motion';
 import Image from 'next/image';
+import { getAssetPath } from '@/lib/utils';
 
 const timelineData = [
   { number: '01', title: 'Location Approval', description: 'Pemilihan lokasi ritel ideal, analisis traffic dan visibilitas gerai, serta pengajuan persetujuan manajemen mall.', illustration: '/illustrations/01_location_approval.svg' },
@@ -107,7 +108,7 @@ function TimelineStage({
           >
             <div className="w-[100px] h-[100px] relative">
               <Image
-                src={stage.illustration}
+                src={getAssetPath(stage.illustration)}
                 alt={stage.title}
                 fill
                 className="object-contain"
@@ -133,7 +134,7 @@ function TimelineStage({
             </span>
             <motion.div style={{ y: yOffset }} className="w-14 h-14 relative shrink-0">
               <Image
-                src={stage.illustration}
+                src={getAssetPath(stage.illustration)}
                 alt={stage.title}
                 fill
                 className="object-contain"

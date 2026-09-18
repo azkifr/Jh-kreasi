@@ -10,6 +10,7 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import Image from 'next/image';
+import { getAssetPath } from '@/lib/utils';
 
 export default function Home() {
   return (
@@ -21,15 +22,15 @@ export default function Home() {
         {/* ============================================================ */}
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
           <Image
-            src="/images/architectural_motif_bg.jpg"
+            src={getAssetPath('/images/architectural_motif_bg.jpg')}
             alt="JH Kreasi Continuous Architectural Motif"
             fill
             priority
-            className="object-cover object-top opacity-20 mix-blend-luminosity filter contrast-125 brightness-95 scale-105 transition-all duration-700"
+            className="object-cover object-top opacity-40 filter contrast-110 brightness-100 scale-105 transition-all duration-700"
           />
-          {/* Ambient Lighting & Luxury Studio Vignette */}
-          <div className="absolute inset-0 bg-gradient-to-b from-forest/80 via-forest/65 to-forest/90" />
-          <div className="absolute inset-0 mesh-gradient opacity-60" />
+          {/* Ambient Luxury Lighting & Soft Studio Vignette */}
+          <div className="absolute inset-0 bg-gradient-to-b from-forest/75 via-forest/55 to-forest/80" />
+          <div className="absolute inset-0 mesh-gradient opacity-35" />
         </div>
 
         {/* ============================================================ */}
