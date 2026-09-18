@@ -116,7 +116,7 @@ Terkirim via Website Resmi JH Kreasi`;
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-forest">
+    <section id="contact" className="relative py-24 md:py-32 border-t border-white/5">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           variants={containerVariants}

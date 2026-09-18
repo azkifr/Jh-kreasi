@@ -65,7 +65,7 @@ const itemVariants = {
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-24 md:py-32 bg-sage-dark relative">
+    <section id="services" className="py-24 md:py-32 relative border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}

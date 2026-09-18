@@ -31,7 +31,7 @@
 
   body {
     font-family: var(--font-body);
-    background-color: var(--color-sage);
+    background-color: var(--color-forest);
     color: var(--color-ivory);
     overflow-x: hidden;
   }

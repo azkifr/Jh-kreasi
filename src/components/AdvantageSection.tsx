@@ -28,7 +28,7 @@ const advantages = [
 
 export default function AdvantageSection() {
   return (
-    <section id="advantage" className="py-24 md:py-32">
+    <section id="advantage" className="py-24 md:py-32 relative border-t border-white/5">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16 md:mb-24">
           <motion.div

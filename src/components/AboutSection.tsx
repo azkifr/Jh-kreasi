@@ -14,7 +14,7 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="about" className="bg-forest py-24 md:py-32">
+    <section id="about" className="relative py-24 md:py-32 border-t border-white/5">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div 
           initial="hidden"

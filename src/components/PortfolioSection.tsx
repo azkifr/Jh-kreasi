@@ -13,7 +13,7 @@ const portfolioItems = [
 
 export default function PortfolioSection() {
   return (
-    <section id="portfolio" className="py-24 md:py-32 bg-forest relative">
+    <section id="portfolio" className="py-24 md:py-32 relative border-t border-white/5">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16 md:mb-24">
           <motion.div

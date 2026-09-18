@@ -206,7 +206,7 @@ export default function TimelineSection() {
   const trackerOpacity = useTransform(smoothProgress, [0.05, 0.12, 0.85, 0.95], [0, 1, 1, 0]);
 
   return (
-    <section id="timeline" className="relative py-24 md:py-32 overflow-hidden" ref={containerRef}>
+    <section id="timeline" className="relative py-24 md:py-32 overflow-hidden border-t border-white/5" ref={containerRef}>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
