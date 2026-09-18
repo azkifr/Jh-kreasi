@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="20" fill="#1C2520" fill-opacity="0.5"/>
+  <!-- Map Base Grid -->
+  <path d="M24 76L46 68L74 76L96 68V92L74 100L46 92L24 100V76Z" stroke="#F9F9F6" stroke-width="1.5" stroke-dasharray="3 3" stroke-opacity="0.4"/>
+  <path d="M46 68V92" stroke="#F9F9F6" stroke-width="1.5" stroke-opacity="0.3"/>
+  <path d="M74 76V100" stroke="#F9F9F6" stroke-width="1.5" stroke-opacity="0.3"/>
+  <!-- Map Pin with Gold Border -->
+  <path d="M60 22C46.7 22 36 32.7 36 46C36 63 60 84 60 84C60 84 84 63 84 46C84 32.7 73.3 22 60 22Z" fill="#5B7062" stroke="#D4AF37" stroke-width="2"/>
+  <circle cx="60" cy="45" r="14" fill="#1C2520" stroke="#F9F9F6" stroke-width="1.5"/>
+  <!-- Verification Checkmark -->
+  <path d="M53 45L58 50L68 40" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

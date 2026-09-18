@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="20" fill="#1C2520" fill-opacity="0.5"/>
+  <!-- Grand Opening Ribbon -->
+  <path d="M18 64C38 56 82 56 102 64L98 76C80 68 40 68 22 76L18 64Z" fill="#D4AF37" stroke="#F9F9F6" stroke-width="1.2"/>
+  <!-- Luxury Scissors Cutting Ribbon -->
+  <circle cx="50" cy="40" r="6" stroke="#F9F9F6" stroke-width="1.5"/>
+  <circle cx="66" cy="40" r="6" stroke="#F9F9F6" stroke-width="1.5"/>
+  <path d="M54 44L66 64M62 44L50 64" stroke="#F9F9F6" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="58" cy="54" r="2" fill="#D4AF37"/>
+  <!-- Celebratory Balloons -->
+  <ellipse cx="32" cy="34" rx="8" ry="11" fill="#5B7062" stroke="#D4AF37" stroke-width="1.5"/>
+  <path d="M32 45L34 54" stroke="#F9F9F6" stroke-width="1" stroke-opacity="0.5"/>
+  <ellipse cx="88" cy="32" rx="9" ry="12" fill="#D4AF37" stroke="#F9F9F6" stroke-width="1.5"/>
+  <path d="M88 44L86 54" stroke="#F9F9F6" stroke-width="1" stroke-opacity="0.5"/>
+  <!-- Confetti / Sparkles -->
+  <path d="M46 24L48 28L52 30L48 32L46 36L44 32L40 30L44 28L46 24Z" fill="#D4AF37"/>
+  <path d="M74 20L75 23L78 24L75 25L74 28L73 25L70 24L73 23L74 20Z" fill="#F9F9F6"/>
+</svg>

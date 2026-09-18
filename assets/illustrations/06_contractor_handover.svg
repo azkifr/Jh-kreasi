@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="20" fill="#1C2520" fill-opacity="0.5"/>
+  <!-- Finished Boutique Storefront -->
+  <path d="M28 50L60 32L92 50V90H28V50Z" fill="#243029" stroke="#F9F9F6" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- Luxury Awning -->
+  <path d="M24 50H96L90 60H30L24 50Z" fill="#5B7062" stroke="#D4AF37" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- Showcase Display Window -->
+  <rect x="46" y="64" width="28" height="26" stroke="#D4AF37" stroke-width="1.5"/>
+  <circle cx="68" cy="77" r="1.5" fill="#D4AF37"/>
+  <!-- Certificate / Fit to Open Seal -->
+  <circle cx="86" cy="84" r="14" fill="#1C2520" stroke="#D4AF37" stroke-width="2"/>
+  <path d="M80 84L84 88L92 79" stroke="#F9F9F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M86 98L81 106L86 104L91 106L86 98Z" fill="#D4AF37"/>
+</svg>
