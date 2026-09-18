@@ -26,11 +26,11 @@ export default function Home() {
             alt="JH Kreasi Continuous Architectural Motif"
             fill
             priority
-            className="object-cover object-top opacity-40 filter contrast-110 brightness-100 scale-105 transition-all duration-700"
+            className="object-cover object-top opacity-75 filter contrast-115 brightness-95 scale-100 transition-all duration-700"
           />
-          {/* Ambient Luxury Lighting & Soft Studio Vignette */}
-          <div className="absolute inset-0 bg-gradient-to-b from-forest/75 via-forest/55 to-forest/80" />
-          <div className="absolute inset-0 mesh-gradient opacity-35" />
+          {/* Soft Luxury Vignette: Protects text readability while keeping the motif fully visible */}
+          <div className="absolute inset-0 bg-gradient-to-b from-forest/55 via-forest/35 to-forest/65" />
+          <div className="absolute inset-0 bg-black/25" />
         </div>
 
         {/* ============================================================ */}

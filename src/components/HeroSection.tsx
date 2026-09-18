@@ -47,11 +47,11 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        <motion.h1 variants={itemVariants} className="font-heading text-6xl md:text-7xl lg:text-8xl text-ivory font-light leading-tight mb-6 whitespace-pre-line">
+        <motion.h1 variants={itemVariants} className="font-heading text-6xl md:text-7xl lg:text-8xl text-ivory font-light leading-tight mb-6 whitespace-pre-line drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
           {"Elevating Brands\nin Prime Spaces"}
         </motion.h1>
 
-        <motion.p variants={itemVariants} className="text-sand text-lg md:text-xl max-w-2xl font-body mb-12">
+        <motion.p variants={itemVariants} className="text-sand text-lg md:text-xl max-w-2xl font-body mb-12 drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
           Partner strategis brand luxury untuk menembus ruang ritel prestisius di Indonesia. Dari inisiasi landlord dan turnkey fit-out, hingga grand opening dan aktivasi musiman berdaya cipta tinggi.
         </motion.p>
 

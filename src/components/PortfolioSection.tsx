@@ -1,14 +1,45 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const portfolioItems = [
-  { category: 'Flagship Store Fit-Out', bg: 'bg-sage/40' },
-  { category: 'Grand Opening Event', bg: 'bg-sage/30' },
-  { category: 'Pop-Up Installation', bg: 'bg-sage/20' },
-  { category: 'Seasonal Activation', bg: 'bg-forest' },
-  { category: 'VIP Brand Experience', bg: 'bg-sage/30' },
-  { category: 'Retail Space Design', bg: 'bg-sage/40' },
+  {
+    title: 'Flagship Boutique Fit-Out',
+    location: 'Plaza Indonesia, Jakarta',
+    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80',
+    tag: 'Turnkey Fit-Out',
+  },
+  {
+    title: 'Luxury Store Grand Opening',
+    location: 'Pacific Place Mall, SCBD',
+    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
+    tag: 'VIP Launch Event',
+  },
+  {
+    title: 'Atrium Spatial Pop-Up',
+    location: 'Senayan City, Jakarta',
+    image: 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=800&q=80',
+    tag: 'Pop-Up Installation',
+  },
+  {
+    title: 'Festive Seasonal Activation',
+    location: 'Grand Indonesia, Jakarta',
+    image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80',
+    tag: 'Brand Activation',
+  },
+  {
+    title: 'Private VIP Salon & Lounge',
+    location: 'District 8, SCBD',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    tag: 'Bespoke Experience',
+  },
+  {
+    title: 'Retail Architectural Concept',
+    location: 'Pondok Indah Mall 3',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+    tag: 'Interior Architecture',
+  },
 ];
 
 export default function PortfolioSection() {
@@ -29,7 +60,7 @@ export default function PortfolioSection() {
               Curated Showcase
             </h2>
             <p className="text-sand text-lg max-w-2xl mx-auto font-body">
-              A glimpse into our portfolio of luxury retail transformations.
+              A glimpse into our portfolio of luxury retail transformations and prestigious prime space executions.
             </p>
           </motion.div>
         </div>
@@ -42,28 +73,31 @@ export default function PortfolioSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className={`aspect-[4/3] rounded-xl overflow-hidden relative group border border-white/5 ${item.bg}`}
+              className="aspect-[4/3] rounded-xl overflow-hidden relative group border border-white/10 bg-forest/40"
             >
-              {/* Decorative SVG pattern / Shape */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-5 group-hover:opacity-10 transition-opacity duration-700">
-                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="60" cy="60" r="59" stroke="#D4AF37" strokeWidth="2" strokeDasharray="4 4" />
-                  <circle cx="60" cy="60" r="40" stroke="#D4AF37" strokeWidth="1" />
-                  <path d="M60 0L60 120M0 60L120 60" stroke="#D4AF37" strokeWidth="1" strokeDasharray="2 4" />
-                </svg>
-              </div>
+              {/* Actual Project Photo */}
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-90 group-hover:brightness-100"
+              />
+
+              {/* Gradient Vignette Overlay for Text Legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-90 group-hover:opacity-75 transition-opacity duration-500" />
               
-              {/* Gold gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-gold/40 via-forest/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500" />
-              
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <h3 className="font-heading text-2xl text-ivory mb-2">
-                    {item.category}
+              {/* Content Badge & Title */}
+              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
+                <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <span className="inline-block bg-gold/20 backdrop-blur-md border border-gold/40 text-gold text-[0.65rem] font-medium tracking-widest uppercase px-2.5 py-1 rounded-full mb-3">
+                    {item.tag}
+                  </span>
+                  <h3 className="font-heading text-xl md:text-2xl text-ivory mb-1">
+                    {item.title}
                   </h3>
-                  <p className="text-gold text-xs tracking-[0.2em] uppercase font-body">
-                    Coming Soon
+                  <p className="text-sand/70 text-xs font-body tracking-wider">
+                    {item.location}
                   </p>
                 </div>
               </div>
@@ -78,14 +112,14 @@ export default function PortfolioSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-20 text-center"
         >
-          <p className="text-sand mb-6 font-body text-base">Interested in seeing more?</p>
+          <p className="text-sand mb-6 font-body text-base">Interested in seeing our complete portfolio deck?</p>
           <a
             href="https://wa.me/6281908082775?text=Halo%20JH%20Kreasi%2C%20saya%20ingin%20melihat%20portfolio%20lengkap%20proyek%20Anda..."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block border border-gold text-gold px-8 py-4 rounded-full hover:bg-gold hover:text-forest transition-colors duration-300 font-body tracking-wider text-sm uppercase"
           >
-            Request Full Portfolio
+            Request Full Portfolio Deck
           </a>
         </motion.div>
       </div>
