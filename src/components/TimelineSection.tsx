@@ -220,13 +220,13 @@ export default function TimelineSection() {
           <span className="text-gold uppercase tracking-[0.3em] text-sm block mb-4">
             THE JOURNEY
           </span>
-          <h2 className="font-heading text-4xl md:text-5xl text-ivory font-light mb-6">
+          <h2 className="font-heading text-4xl md:text-5xl text-ivory font-light mb-6 drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
             Retail Project Timeline
           </h2>
-          <p className="text-sand text-lg max-w-2xl mx-auto mb-2">
+          <p className="text-sand text-lg max-w-2xl mx-auto mb-2 drop-shadow-[0_1px_8px_rgba(0,0,0,0.85)]">
             7-stage end-to-end execution — from location approval to grand opening.
           </p>
-          <p className="text-sand/50 text-sm italic">
+          <p className="text-sand/70 text-sm italic drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
             Timeline tailored to project scale &amp; mall specifications
           </p>
         </motion.div>

@@ -85,7 +85,7 @@ export default function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-heading text-4xl md:text-5xl text-ivory font-light mb-6"
+            className="font-heading text-4xl md:text-5xl text-ivory font-light mb-6 drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]"
           >
             Core Services
           </motion.h2>
@@ -95,7 +95,7 @@ export default function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-sand text-lg max-w-2xl font-body"
+            className="text-sand text-lg max-w-2xl font-body drop-shadow-[0_1px_8px_rgba(0,0,0,0.85)]"
           >
             Five strategic pillars that define our comprehensive approach to luxury retail success.
           </motion.p>

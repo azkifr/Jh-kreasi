@@ -63,16 +63,17 @@
 /* === Custom Utilities === */
 @layer utilities {
   .glass-card {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(18, 26, 22, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.45), inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
   }
 
   .glass-card-hover:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(212, 175, 55, 0.4);
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.08);
+    background: rgba(24, 34, 29, 0.94);
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 16px 42px -4px rgba(0, 0, 0, 0.55), 0 0 25px rgba(212, 175, 55, 0.12), inset 0 1px 1px 0 rgba(212, 175, 55, 0.15);
   }
 
   .text-gradient-gold {
