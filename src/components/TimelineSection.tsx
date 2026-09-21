@@ -26,11 +26,22 @@ function TimelineStage({
   smoothProgress: MotionValue<number>;
 }) {
   const total = timelineData.length;
-  const start = index / total;
-  const mid = (index + 0.5) / total;
-  const end = (index + 1) / total;
+  const targetProgress = total > 1 ? index / (total - 1) : 0;
+  const leadWindow = 0.08;
 
-  const activeProgress = useTransform(smoothProgress, [start, mid], [0, 1]);
+  // Active progress: 0 (unreached) to 1 (reached and passed)
+  const activeProgress = useTransform(smoothProgress, (v) => {
+    if (index === 0) {
+      if (v <= 0) return 0.85;
+      if (v >= 0.04) return 1;
+      return 0.85 + (v / 0.04) * 0.15;
+    }
+    const start = targetProgress - leadWindow;
+    if (v <= start) return 0;
+    if (v >= targetProgress) return 1;
+    return (v - start) / leadWindow;
+  });
+
   const opacity = useTransform(activeProgress, [0, 1], [0.35, 1]);
   const yOffset = useTransform(activeProgress, [0, 1], [20, 0]);
   const nodeScale = useTransform(activeProgress, [0, 0.4, 0.7, 1], [1, 1.15, 1.08, 1]);
@@ -44,11 +55,14 @@ function TimelineStage({
   const isEven = index % 2 === 0;
 
   return (
-    <div className="relative flex items-start md:items-center w-full">
+    <div
+      id={`stage-${stage.number}`}
+      className="relative flex items-start md:items-center w-full scroll-mt-32"
+    >
       {/* ── Desktop Center Node ── */}
       <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 z-20">
         <motion.div
-          className="w-5 h-5 rounded-full border-2 border-ivory/40 flex items-center justify-center"
+          className="w-5 h-5 rounded-full border-2 border-ivory/40 flex items-center justify-center bg-forest"
           style={{ scale: nodeScale }}
         >
           <motion.div
@@ -61,7 +75,7 @@ function TimelineStage({
       {/* ── Mobile Left Node ── */}
       <div className="md:hidden absolute left-[28px] top-8 -translate-x-1/2 z-20 flex">
         <motion.div
-          className="w-4 h-4 rounded-full border-2 border-ivory/40 flex items-center justify-center"
+          className="w-4 h-4 rounded-full border-2 border-ivory/40 flex items-center justify-center bg-forest"
           style={{ scale: nodeScale }}
         >
           <motion.div
@@ -91,7 +105,9 @@ function TimelineStage({
               <span className="text-gradient-gold font-heading text-5xl font-light opacity-60">
                 {stage.number}
               </span>
-              <h3 className="font-heading text-2xl text-ivory mt-2 mb-3">{stage.title}</h3>
+              <h3 className="font-heading text-2xl text-ivory mt-2 mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                {stage.title}
+              </h3>
               <p className="text-sand text-base leading-relaxed">{stage.description}</p>
             </div>
           </motion.div>
@@ -141,7 +157,9 @@ function TimelineStage({
               />
             </motion.div>
           </div>
-          <h3 className="font-heading text-xl text-ivory mb-2">{stage.title}</h3>
+          <h3 className="font-heading text-xl text-ivory mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            {stage.title}
+          </h3>
           <p className="text-sand text-sm leading-relaxed">{stage.description}</p>
         </motion.div>
       </div>
@@ -160,28 +178,61 @@ function TrackerDot({
   smoothProgress: MotionValue<number>;
 }) {
   const total = timelineData.length;
-  const peak = (index + 0.5) / total;
-  const start = Math.max(0, peak - 0.08);
-  const end = Math.min(1, peak + 0.08);
+  const step = 1 / (total - 1);
+  const target = index * step;
+  const halfSpan = step * 0.55;
 
-  const isActive = useTransform(smoothProgress, [start, peak, end], [0, 1, 0]);
+  const isActive = useTransform(smoothProgress, (v) => {
+    if (index === 0) {
+      if (v <= 0) return 1;
+      if (v >= halfSpan) return 0;
+      return 1 - v / halfSpan;
+    }
+    if (index === total - 1) {
+      if (v >= 1) return 1;
+      if (v <= 1 - halfSpan) return 0;
+      return (v - (1 - halfSpan)) / halfSpan;
+    }
+    const dist = Math.abs(v - target);
+    if (dist >= halfSpan) return 0;
+    return 1 - dist / halfSpan;
+  });
+
   const dotScale = useTransform(isActive, [0, 1], [1, 1.8]);
   const dotBg = useTransform(
     isActive,
     [0, 1],
-    ['rgba(255,255,255,0.2)', '#D4AF37']
+    ['rgba(255,255,255,0.25)', '#D4AF37']
   );
 
+  const handleClick = () => {
+    const el = document.getElementById(`stage-${stage.number}`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
   return (
-    <div className="flex items-center justify-end gap-3">
+    <div
+      onClick={handleClick}
+      className="flex items-center justify-end gap-3 cursor-pointer group pointer-events-auto py-1"
+      role="button"
+      tabIndex={0}
+      aria-label={`Jump to stage ${stage.number}: ${stage.title}`}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleClick();
+        }
+      }}
+    >
       <motion.span
-        className="text-xs font-heading text-gold whitespace-nowrap"
+        className="text-xs font-heading text-gold whitespace-nowrap drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] transition-colors group-hover:text-gold-light"
         style={{ opacity: isActive }}
       >
         {stage.title}
       </motion.span>
       <motion.div
-        className="w-2 h-2 rounded-full shrink-0"
+        className="w-2.5 h-2.5 rounded-full shrink-0 border border-white/20 transition-all group-hover:scale-125"
         style={{ backgroundColor: dotBg, scale: dotScale }}
       />
     </div>
@@ -190,24 +241,44 @@ function TrackerDot({
 
 /* ── Main Timeline Section ──────────────────────────────────── */
 export default function TimelineSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const stagesRef = useRef<HTMLDivElement>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start'],
+  // Measure stages container for line and milestone progress
+  const { scrollYProgress: stagesProgress } = useScroll({
+    target: stagesRef,
+    offset: ['start 65%', 'end 60%'],
   });
 
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 20,
+  const smoothProgress = useSpring(stagesProgress, {
+    stiffness: 150,
+    damping: 24,
     restDelta: 0.001,
   });
 
-  const progressHeight = useTransform(smoothProgress, [0, 1], ['0%', '100%']);
-  const trackerOpacity = useTransform(smoothProgress, [0.05, 0.12, 0.85, 0.95], [0, 1, 1, 0]);
+  const progressHeight = useTransform(smoothProgress, (v) => {
+    const clamped = Math.max(0, Math.min(1, v));
+    return `${(clamped * 100).toFixed(1)}%`;
+  });
+
+  // Measure entire section for side tracker visibility fade-in/out
+  const { scrollYProgress: sectionProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start 85%', 'end 15%'],
+  });
+
+  const trackerOpacity = useTransform(
+    sectionProgress,
+    [0, 0.08, 0.92, 1],
+    [0, 1, 1, 0]
+  );
 
   return (
-    <section id="timeline" className="relative py-24 md:py-32 overflow-hidden border-t border-white/5" ref={containerRef}>
+    <section
+      id="timeline"
+      className="relative py-24 md:py-32 overflow-hidden border-t border-white/5"
+      ref={sectionRef}
+    >
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
@@ -232,12 +303,12 @@ export default function TimelineSection() {
         </motion.div>
 
         {/* Timeline Container */}
-        <div className="relative">
+        <div ref={stagesRef} className="relative">
           {/* ── Desktop Center Line ── */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2">
             <div className="w-full h-full bg-white/10" />
             <motion.div
-              className="w-full bg-gold absolute top-0 left-0 origin-top"
+              className="w-full bg-gold absolute top-0 left-0 origin-top shadow-[0_0_12px_rgba(212,175,55,0.7)]"
               style={{ height: progressHeight }}
             />
           </div>
@@ -246,7 +317,7 @@ export default function TimelineSection() {
           <div className="md:hidden absolute left-[28px] top-0 bottom-0 w-[2px]">
             <div className="w-full h-full bg-white/10" />
             <motion.div
-              className="w-full bg-gold absolute top-0 left-0 origin-top"
+              className="w-full bg-gold absolute top-0 left-0 origin-top shadow-[0_0_12px_rgba(212,175,55,0.7)]"
               style={{ height: progressHeight }}
             />
           </div>
@@ -267,7 +338,7 @@ export default function TimelineSection() {
 
       {/* ── Side Milestone Tracker (Desktop) ── */}
       <motion.div
-        className="hidden lg:flex fixed right-8 top-1/2 -translate-y-1/2 flex-col gap-4 z-30 pointer-events-none"
+        className="hidden lg:flex fixed right-8 top-1/2 -translate-y-1/2 flex-col gap-3 z-30 pointer-events-none"
         style={{ opacity: trackerOpacity }}
       >
         {timelineData.map((stage, index) => (
