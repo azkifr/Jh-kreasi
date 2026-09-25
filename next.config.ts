@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const isGithubActions = process.env.GITHUB_ACTIONS || false;
+const isVercel = process.env.VERCEL || false;
+
 let assetPrefix = "";
 let basePath = "";
 
@@ -11,7 +13,8 @@ if (isGithubActions) {
 }
 
 const nextConfig: NextConfig = {
-  output: "export",
+  // Static export only for GitHub Pages; Vercel uses native Next.js runtime
+  ...(isGithubActions && !isVercel ? { output: "export" } : {}),
   basePath: basePath,
   assetPrefix: assetPrefix,
   env: {
