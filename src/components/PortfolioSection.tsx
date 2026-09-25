@@ -64,7 +64,7 @@ export default function PortfolioSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: index * 0.08 }}
-              className="aspect-[4/3] rounded-xl overflow-hidden relative group border border-white/10 bg-forest/60"
+              className="aspect-video rounded-xl overflow-hidden relative group border border-white/10 bg-[#0d1a10]"
             >
               {item.image ? (
                 <>
@@ -73,7 +73,7 @@ export default function PortfolioSection() {
                     alt={item.scopeTag}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    className="object-contain group-hover:scale-105 transition-transform duration-700"
                     unoptimized
                   />
                   {/* Subtle scope tag badge on hover */}
