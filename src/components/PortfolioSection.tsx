@@ -26,8 +26,8 @@ const portfolioItems = [
     scopeTag: 'Consultation Phase',
   },
   {
-    image: null, // placeholder — to be added later
-    scopeTag: 'Coming Soon',
+    image: '/portfolio/beauty_popup.jpg',
+    scopeTag: 'Beauty Pop-Up',
   },
 ];
 
