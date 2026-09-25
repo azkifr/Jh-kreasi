@@ -38,7 +38,7 @@ export default function AdvantageSection() {
             transition={{ duration: 0.8 }}
           >
             <span className="text-gold uppercase tracking-[0.3em] text-sm font-semibold block mb-4 font-body">
-              THE JH ADVANTAGE
+              THE JH KREASI ADVANTAGE
             </span>
             <h2 className="font-heading text-4xl md:text-5xl text-ivory font-light drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
               Why Brands Trust Us

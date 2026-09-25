@@ -182,7 +182,7 @@ Terkirim via Website Resmi JH Kreasi`;
                   <div>
                     <p className="text-ivory font-medium mb-1">WhatsApp</p>
                     <p className="text-sand text-sm">+62 819 0808 2775</p>
-                    <p className="text-gold/60 text-xs mt-1">Chat with our Principal →</p>
+                    <p className="text-gold/60 text-xs mt-1">Chat with us →</p>
                   </div>
                 </div>
               </motion.a>
