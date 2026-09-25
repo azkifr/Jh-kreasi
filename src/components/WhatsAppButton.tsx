@@ -31,7 +31,7 @@ export default function WhatsAppButton() {
           className="fixed bottom-6 right-6 z-50 flex items-center gap-4"
         >
           <div className="hidden sm:block bg-ivory text-forest text-xs font-medium px-4 py-2 rounded-full shadow-lg">
-            Chat with our Principal
+            Chat with us
           </div>
           <a
             href={whatsappUrl}

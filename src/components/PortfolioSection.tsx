@@ -8,26 +8,32 @@ const portfolioItems = [
   {
     image: '/portfolio/landlord_initiation.jpg',
     scopeTag: 'Landlord Initiation',
+    objectPosition: 'center',
   },
   {
     image: '/portfolio/grand_launching.jpg',
     scopeTag: 'Grand Launching',
+    objectPosition: 'center',
   },
   {
     image: '/portfolio/private_dinner.jpg',
     scopeTag: 'Private Dinner Event',
+    objectPosition: 'top',
   },
   {
     image: '/portfolio/grand_opening.jpg',
     scopeTag: 'Grand Opening Event',
+    objectPosition: 'center',
   },
   {
     image: '/portfolio/consultation_phase.jpg',
     scopeTag: 'Consultation Phase',
+    objectPosition: 'center',
   },
   {
     image: '/portfolio/beauty_popup.jpg',
     scopeTag: 'Beauty Pop-Up',
+    objectPosition: 'center',
   },
 ];
 
@@ -73,7 +79,8 @@ export default function PortfolioSection() {
                     alt={item.scopeTag}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    style={{ objectPosition: item.objectPosition }}
                     unoptimized
                   />
                   {/* Subtle scope tag badge on hover */}
