@@ -16,7 +16,7 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: 'swap',
 });
 
-const SITE_URL = 'https://jh-kreasi.com';
+const SITE_URL = 'https://jh-kreasi.id';
 const SITE_NAME = 'JH Kreasi Studio';
 
 export const metadata: Metadata = {

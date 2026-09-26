@@ -11,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://jh-kreasi.com/sitemap.xml',
-    host: 'https://jh-kreasi.com',
+    sitemap: 'https://jh-kreasi.id/sitemap.xml',
+    host: 'https://jh-kreasi.id',
   };
 }
