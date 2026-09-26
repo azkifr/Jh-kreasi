@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
+import { getAssetPath } from '@/lib/utils';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -48,6 +49,13 @@ export const metadata: Metadata = {
   /* ── Canonical & Alternates ── */
   alternates: {
     canonical: '/',
+  },
+
+  /* ── Favicon / Icons ── */
+  icons: {
+    icon: getAssetPath('/favicon.svg'),
+    shortcut: getAssetPath('/favicon.svg'),
+    apple: getAssetPath('/favicon.svg'),
   },
 
   /* ── Open Graph ── */
