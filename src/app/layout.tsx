@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { getAssetPath } from '@/lib/utils';
+import { Analytics } from '@vercel/analytics/next';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -167,6 +168,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   );
